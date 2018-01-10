@@ -6,7 +6,7 @@ This problem provides practice at:
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
          their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -30,6 +30,7 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 
 import time
 import sys
+import rosegraphics as rg
 
 
 def main():
@@ -38,11 +39,10 @@ def main():
     ####################################################################
     # UN-comment tests as you work the problems.
     ####################################################################
-
-#     run_test_init()
-#     run_test_append_string()
-#     run_test_double()
-#     run_test_shrink()
+    run_test_init()
+    run_test_append_string()
+    run_test_double()
+    run_test_shrink()
 #     run_test_double_then_shrink()
 #     run_test_reset()
 #     run_test_steal()
@@ -63,6 +63,11 @@ class Box(object):
     """
 
     def __init__(self, contents, volume):
+        if(len(contents) <= volume):
+            self.contents = contents
+        else:
+            self.contents = ''
+        self.volume = volume
         """
         What comes in:
           -- self
@@ -94,7 +99,7 @@ class Box(object):
           :type volume: int
         """
         # --------------------------------------------------------------
-        # TODO: 2. Implement and test this function.
+        # DONE: 2. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -104,6 +109,15 @@ class Box(object):
         # --------------------------------------------------------------
 
     def append_string(self, additional_contents):
+        remaining_contents = ''
+        for k in range(len(additional_contents)):
+            if len(self.contents) < self.volume:
+                self.contents += additional_contents[k]
+            else:
+                remaining_contents += additional_contents[k]
+        return remaining_contents
+
+
         """
         What comes in:
           -- self
@@ -135,7 +149,7 @@ class Box(object):
           :type additional_contents: str
         """
         # --------------------------------------------------------------
-        # TODO: 3. Implement and test this function.
+        # DONE: 3. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -158,6 +172,7 @@ class Box(object):
         # --------------------------------------------------------------
 
     def double(self):
+        return self.append_string(self.contents)
         """
         What comes in:
           -- self
@@ -191,7 +206,7 @@ class Box(object):
           #                       contents that did NOT fit]
         """
         # --------------------------------------------------------------
-        # TODO: 4. Implement and test this function.
+        # DONE: 4. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -205,6 +220,12 @@ class Box(object):
         ################################################################
 
     def shrink(self, new_volume):
+        self.volume = new_volume
+        clipped_string = ''
+        for k in range(len(self.contents)-1,self.volume - 1,-1):
+            clipped_string += self.contents[k]
+            self.contents -= self.contents[k]
+        return clipped_string
         """
         What comes in:
           -- self
