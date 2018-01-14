@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 3.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Aman Bajaj.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -137,6 +137,10 @@ def run_test_practice_problem3a():
 
 
 def practice_problem3a(circles):
+    product = 1
+    for k in range(len(circles)):
+        product *= circles[k].center.x
+    return product
     """
     What comes in:  A sequence of rg.Circles.
     What goes out:  Returns the product of the x-coordinates
@@ -156,7 +160,7 @@ def practice_problem3a(circles):
       :type sequence: [rg.Circle]
     """
     ####################################################################
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -225,6 +229,11 @@ def run_test_practice_problem3b():
 
 
 def practice_problem3b(sequence):
+    last_item = sequence[len(sequence)-1]
+    for k in range(len(sequence)-1):
+        if sequence[k] == last_item:
+            return True
+    return False
     """
     What comes in: A non-empty sequence.
     What goes out: Returns True if the last item of the sequence
@@ -266,7 +275,7 @@ def practice_problem3b(sequence):
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPLEMENTATION REQUIREMENT:  You are NOT allowed to use the
@@ -327,6 +336,11 @@ def run_test_practice_problem3c():
 
 
 def practice_problem3c(sequence):
+    places = []
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            places += [k]
+    return places
     """
     What comes in: A non-empty sequence of integers.
     What goes out: Returns a list of integers,
@@ -354,7 +368,7 @@ def practice_problem3c(sequence):
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -436,7 +450,7 @@ def practice_problem3d(sequence):
       :type: sequence: list    or tuple or string
     """
     ####################################################################
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -444,9 +458,13 @@ def practice_problem3d(sequence):
     #    TIME ESTIMATE:   8 minutes for each part of this problem.
     ####################################################################
 
+    for k in range(len(sequence)):
+        if sequence[k] == 0:
+            return k
+    return -1
 
     ####################################################################
-    # TODO: 6. Just ABOVE this TODO, you should have implemented
+    # DONE: 6. Just ABOVE this TODO, you should have implemented
     #     a solution for the   practice_problem3d   function.
     #     Here, put ANOTHER solution, as follows:
     #
@@ -460,7 +478,10 @@ def practice_problem3d(sequence):
     #
     #          This solution should *** HAVE NO LOOP (no FOR). ***
     ####################################################################
-
+    if practice_problem3c(sequence) == []:
+        return -1
+    else:
+        return practice_problem3c()[0]
 
 def run_test_practice_problem3e():
     """ Tests the    practice_problem3e    function. """
@@ -507,6 +528,10 @@ def run_test_practice_problem3e():
 
 
 def practice_problem3e(sequence):
+    total = 0
+    for k in range(0,sequence,2):
+        total += sequence[k]
+    return total
     """
     What comes in:
       A sequence of numbers.
@@ -522,7 +547,7 @@ def practice_problem3e(sequence):
       :type sequence: list(float)    or tuple(float)
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)

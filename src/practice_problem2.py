@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 2.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Aman Bajaj.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -40,9 +40,35 @@ def main():
 # ----------------------------------------------------------------------
 
 def run_test_practice_problem2a():
+
+    print()
+    print('--------------------------------------------------')
+    print('Testing the   practice_problem2a   function:')
+    print('--------------------------------------------------')
+
+    expected = [2,3,4,5]
+    actual = practice_problem2a([1,2,3,4],1)
+    print("Test 1 Expected: ", expected)
+    print("Actual:", actual)
+
+    expected = [5, 48, 1]
+    actual = practice_problem2a([2, 45, -2], 3)
+    print("Test 2 Expected: ", expected)
+    print("Actual:", actual)
+
+    expected = [7, 5]
+    actual = practice_problem2a([4, 2], 3)
+    print("Test 3 Expected: ", expected)
+    print("Actual:", actual)
+
+    expected = [11, 20, 50, 36]
+    actual = practice_problem2a([2, 11, 41, 27], 9)
+    print("Test 4 Expected: ", expected)
+    print("Actual:", actual)
+
     """ Tests the   practice_problem2a  function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem2a  function defined below.
     #   Include at least **   4 reasonable   ** tests.
     #
@@ -51,13 +77,13 @@ def run_test_practice_problem2a():
     #    DIFFICULTY:      3
     #    TIME ESTIMATE:   5 minutes.
     ####################################################################
-    print()
-    print('--------------------------------------------------')
-    print('Testing the   practice_problem2a   function:')
-    print('--------------------------------------------------')
 
 
 def practice_problem2a(sequence, delta):
+    new_seq = []
+    for k in range(len(sequence)):
+        new_seq.append(sequence[k]+delta)
+    return new_seq
     """
     What comes in:
       -- A sequence of integers, e.g. ([2, 10, 5, -20, 8])
@@ -76,7 +102,7 @@ def practice_problem2a(sequence, delta):
       :type delta:    int
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -151,6 +177,11 @@ def run_test_practice_problem2b():
 
 
 def practice_problem2b(sequence):
+    string_back = ''
+    for k in range(len(sequence)):
+        if sequence[k] != '':
+            string_back += sequence[k][0]
+    return string_back
     """
     What comes in:
       -- A sequence of strings, e.g. ('hello', 'Bye', 'ok joe')
@@ -170,7 +201,7 @@ def practice_problem2b(sequence):
       :type sequence [str]
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
